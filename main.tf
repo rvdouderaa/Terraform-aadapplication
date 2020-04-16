@@ -1,3 +1,4 @@
+# vscode test
 provider "azurerm" {
   version = "=1.42.0"
   subscription_id = var.subscription_id
