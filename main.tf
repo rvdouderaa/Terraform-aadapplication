@@ -27,3 +27,11 @@ resource "azuread_service_principal" "default" {
   application_id = azuread_application.AADApplication.application_id
   tags  = []
 }
+
+output "applicationID" {
+  value = azuread_application.AADApplication.application_id
+}
+
+output "Secret" {
+  value = random_password.default.result
+}
