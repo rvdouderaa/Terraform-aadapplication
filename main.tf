@@ -44,9 +44,3 @@ output "Secret" {
 output "ValidThru" {
   value = azuread_application_password.default.end_date
 }
-
-# Outputs:
-# 
-# Secret = u0r3oz9Zk<g3>2Z&dnItZy=t<kefztPxy
-# ValidThru = 2021-04-30T09:35:12Z
-# applicationID = c168a97a-2517-4841-8f50-1d5c94b6cbdf
