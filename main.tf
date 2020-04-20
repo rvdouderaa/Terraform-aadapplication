@@ -11,7 +11,6 @@ resource "azuread_application" "AADApplication" {
   oauth2_allow_implicit_flow = false    
 }
 
-
 resource "random_password" "default" {
   length  = 33
   special = true
@@ -20,7 +19,7 @@ resource "random_password" "default" {
 resource "azuread_application_password" "default" {
   application_object_id = azuread_application.AADApplication.id
   value                 = random_password.default.result
-  end_date              = "2040-01-01T01:02:03Z"
+  end_date              = timeadd(timestamp(),"9000h")
 }
 
 resource "azuread_service_principal" "default" {
@@ -34,4 +33,8 @@ output "applicationID" {
 
 output "Secret" {
   value = random_password.default.result
+}
+
+output "ValidThru" {
+  value = azuread_application_password.default.end_date
 }
